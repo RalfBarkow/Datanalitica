@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Datanalitica",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"created",
+		"text",
+		"id",
+		"authorId"
+	],
+	"name" : "Tweet",
+	"type" : "normal"
+}

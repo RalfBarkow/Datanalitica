@@ -13,6 +13,8 @@ userTweetsFrom: username since: startDateString until: endDateString
 			'&', untilDate, 
 			'&', nextToken.
 		response := STONJSON fromString: (self rawResponseForURL: queryUrl).
-		messages addAll: (response at: 'data').
+		(response at: 'data') do: [:tweetData | 
+			messages add: (Tweet new fromDictionary: tweetData) 
+		].
 		nextToken := 'pagination_token=',((response at: 'meta') at: 'next_token' ifAbsent: [ 'stop' ])].
 ^ messages.
