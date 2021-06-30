@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Datanalitica",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"keys"
+	],
+	"instvars" : [ ],
+	"name" : "TwitterAPI",
+	"type" : "normal"
+}
