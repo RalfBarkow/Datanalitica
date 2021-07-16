@@ -1,3 +1,3 @@
 utilities
 words
-	^ self text splitOn: Character space
+	^ self text allRegexMatches: '\w*'

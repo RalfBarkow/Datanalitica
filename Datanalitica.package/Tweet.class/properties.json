@@ -9,7 +9,9 @@
 		"created",
 		"text",
 		"id",
-		"authorId"
+		"authorId",
+		"conversationId",
+		"username"
 	],
 	"name" : "Tweet",
 	"type" : "normal"
