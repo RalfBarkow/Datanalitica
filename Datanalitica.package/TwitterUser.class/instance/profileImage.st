@@ -3,7 +3,15 @@ profileImage
 	| response |
 	response := ZnClient new url: (self profileImageUrl); get; response.
 	response contentType = ZnMimeType imageJpeg
-		ifTrue: [ ^ (JPEGReadWriter gtFromBuffer: response contents) asElement ].
+		ifTrue: [ | imageTemp |
+			imageTemp := [JPEGReadWriter gtFromBuffer: response contents].
+			imageTemp on: Error do: [ ^ GtABContact new avatar ].
+			^ imageTemp value asElement 
+		].
 	response contentType = ZnMimeType imagePng
-		ifTrue: [ ^ (PNGReadWriter gtFromBuffer: response contents) asElement ].
+		ifTrue: [ | imageTemp |
+			imageTemp := [PNGReadWriter gtFromBuffer: response contents].
+			imageTemp on: Error do: [ ^ GtABContact new avatar ].
+			^ imageTemp value asElement 
+		].
 	^ BlElement new background: Color gray
