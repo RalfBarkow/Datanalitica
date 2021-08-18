@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Datanalitica-Datanalitica",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"users",
+		"title"
+	],
+	"name" : "TwitterUsersGroup",
+	"type" : "normal"
+}

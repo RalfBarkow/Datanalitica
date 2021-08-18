@@ -3,5 +3,5 @@ userEndPointFor: username selecting: tweetsOrMentions
 	"I build a shared URL for querying last 100 mentions or tweets for a particular user.
 	Second parameter should be only 'tweets' or 'mentions', dateString, if present, should be YYYY-MM-DD."
 	| commonQueryParameters |
-	commonQueryParameters := '?expansions=author_id&tweet.fields=conversation_id,created_at&user.fields=username,profile_image_url&max_results=100'.
+	commonQueryParameters := '?expansions=author_id&tweet.fields=conversation_id,created_at&user.fields=username,name,profile_image_url&max_results=100'.
 	^ self usersBaseEndPoint, (self userIDFrom: username), '/', tweetsOrMentions, commonQueryParameters 
