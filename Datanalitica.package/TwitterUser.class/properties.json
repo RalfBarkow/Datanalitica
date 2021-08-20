@@ -9,7 +9,10 @@
 		"id",
 		"name",
 		"userName",
-		"profileImageUrl"
+		"profileImageUrl",
+		"description",
+		"metrics",
+		"tweets"
 	],
 	"name" : "TwitterUser",
 	"type" : "normal"

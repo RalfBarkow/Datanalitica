@@ -9,6 +9,7 @@ gtViewContactDetailsOn: aView
 			details := String streamContents: [:aStream |
 				aStream nextPutAll: self name.
 				aStream cr.
+				aStream nextPutAll: self description.
 				].
 			
 			container := BlElement new
