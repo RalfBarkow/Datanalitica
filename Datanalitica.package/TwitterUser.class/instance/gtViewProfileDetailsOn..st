@@ -4,47 +4,21 @@ gtViewProfileDetailsOn: aView
 	^ aView explicit 
 		title: 'Details' translated;
 		priority: 5;
-		stencil: [
-			|container verticalContainer detailsTextContainer avatarContainer nameTextContainer details|
-			details := String streamContents: [:aStream |
-				aStream nextPutAll: self name.
-				aStream cr.
-				aStream nextPutAll: self description.
-				].
-			
+			stencil: [ 
+			| container imageContainer |
 			container := BlElement new
-				layout: BlLinearLayout horizontal;
+				layout: BlFlowLayout new;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal matchParent ];
+				padding: (BlInsets all: 10).
+			imageContainer := BlLazyElement new
+				withGlamorousPreview;
+				aptitude: BrShadowAptitude new;
 				background: Color white;
-				aptitude: BrShadowAptitude;
 				margin: (BlInsets all: 20);
 				constraintsDo: [ :c | 
-					c horizontal fitContent.
-					c vertical fitContent].
-			avatarContainer := BlElement new
-				size: 124@124;
-				background: (self profileImage scaledToSize: 124@124);
-				margin: (BlInsets all: 10).
-			nameTextContainer := BlTextElement new
-				constraintsDo: [ :c | 
-					c horizontal matchParent ];
-				margin: (BlInsets top: 5 right: 0 bottom: 20 left: 5);
-				text: (('@', self userName) asRopedText glamorousRegularFont
-					fontSize: 30;
-					foreground: Color black).
-			detailsTextContainer := BrEditor new
-				aptitude: (BrGlamorousRegularEditorAptitude new fontSize: 16);
-				text: details;
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical matchParent ].
-			verticalContainer := BlElement new
-				layout: BlLinearLayout vertical;
-				margin: (BlInsets all: 10);
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical matchParent].
-			verticalContainer addChild: nameTextContainer.
-			verticalContainer addChild: detailsTextContainer.
-			container addChild: avatarContainer.
-			container addChild: verticalContainer.
-			container ].
+						c vertical exact: 150. 
+						c horizontal exact: 1000 ];
+				elementBuilder: [ self asCardElement margin: (BlInsets all: 20) ].
+			container addChild: imageContainer].
