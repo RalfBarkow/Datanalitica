@@ -4,6 +4,6 @@ fromDictionary: aDictionary
 	text := aDictionary at: 'text'.
 	id := aDictionary at: 'id'.
 	authorId := aDictionary at: 'author_id'.
-	username := aDictionary at: 'username' ifAbsent: [''] .
+	user := aDictionary at: 'username' ifAbsent: [''] .
 	conversationId := aDictionary at: 'conversation_id' ifAbsent: [ '' ].
 	^ self

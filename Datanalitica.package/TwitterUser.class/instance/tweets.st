@@ -1,3 +1,3 @@
 accessing
 tweets
-	^ tweets ifNil: [ tweets := OrderedCollection new]
+	^ tweets ifNil: [ tweets := TweetsCollection new]

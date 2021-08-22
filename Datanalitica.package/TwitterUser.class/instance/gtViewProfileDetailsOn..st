@@ -1,5 +1,5 @@
 accessing
-gtViewContactDetailsOn: aView
+gtViewProfileDetailsOn: aView
 	<gtView>
 	^ aView explicit 
 		title: 'Details' translated;
