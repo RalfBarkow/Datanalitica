@@ -12,7 +12,8 @@
 		"profileImageUrl",
 		"description",
 		"metrics",
-		"tweets"
+		"tweets",
+		"createdAt"
 	],
 	"name" : "TwitterUser",
 	"type" : "normal"
