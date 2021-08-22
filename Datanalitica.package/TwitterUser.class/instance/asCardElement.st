@@ -19,4 +19,4 @@ asCardElement
 			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self name; beLargeSize);
 			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted);
 			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self description));
-		when: BlClickEvent do: [:e | e target phlow spawnObject: self]
+		when: BlClickEvent do: [:e | e target phlow spawnObject: self tweets]
