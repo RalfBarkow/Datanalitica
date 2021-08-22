@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Datanalitica-Datanalitica",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"language",
+		"name",
+		"subtopics"
+	],
+	"name" : "DiscourseTopic",
+	"type" : "normal"
+}

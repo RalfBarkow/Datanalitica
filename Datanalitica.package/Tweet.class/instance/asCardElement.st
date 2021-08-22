@@ -13,7 +13,7 @@ asCardElement
 				   margin: (BlInsets left: 20);
 				   addChild: (BrLabel new
 						    aptitude: BrGlamorousLabelAptitude;
-						    text: '@' , self user name , ' | ' , self created asString;
+						    text: '@' , self user userName , ' | ' , self created asString;
 						    beSmallSize);
 				   addChild: (BrLabel new
 						    aptitude: BrGlamorousLabelAptitude;

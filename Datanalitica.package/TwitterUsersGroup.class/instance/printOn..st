@@ -2,4 +2,4 @@ accessing
 printOn: aStream
 	super printOn: aStream.
 	aStream
-		nextPutAll: '(@', self userName,')'
+		nextPutAll: '( ', self users size asString, ' users )'
