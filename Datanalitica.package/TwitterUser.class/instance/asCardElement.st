@@ -1,4 +1,4 @@
-accessing
+ui
 asCardElement
 	^ BrHorizontalPane new 
 		hFitContent;
@@ -9,7 +9,14 @@ asCardElement
 		addChild: (BrVerticalPane new
 			fitContent;
 			margin: (BlInsets left: 20);
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: '@', self  userName);
+			addChild: (BlTextElement new
+				constraintsDo: [ :c | 
+					c horizontal fitContent ];
+				margin: (BlInsets top: 5 right: 0 bottom: 5 left: 5);
+				text: (('@', self userName) asRopedText glamorousRegularFont
+					fontSize: 20;
+					foreground: Color black));
 			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self name);
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted));
+			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted);
+			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self description));
 		when: BlClickEvent do: [:e | e target phlow spawnObject: self]
