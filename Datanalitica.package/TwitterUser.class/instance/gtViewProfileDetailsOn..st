@@ -19,6 +19,6 @@ gtViewProfileDetailsOn: aView
 				margin: (BlInsets all: 20);
 				constraintsDo: [ :c | 
 						c vertical exact: 150. 
-						c horizontal exact: 1000 ];
+						c horizontal matchParent ];
 				elementBuilder: [ self asCardElement margin: (BlInsets all: 20) ].
 			container addChild: imageContainer].

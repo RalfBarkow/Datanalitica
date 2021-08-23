@@ -1,4 +1,4 @@
-accessing
+ui
 gtTweetsFor: aView
 	<gtView>
 	^ aView explicit
@@ -8,7 +8,7 @@ gtTweetsFor: aView
 			container := BlElement new
 				layout: BlFlowLayout new;
 				constraintsDo: [ :c | 
-					c vertical fitContent.
+					c vertical matchParent.
 					c horizontal matchParent ];
 				padding: (BlInsets all: 10).
 			self tweets do: [ :each |
@@ -19,8 +19,8 @@ gtTweetsFor: aView
 
 					margin: (BlInsets all: 20);
 					constraintsDo: [ :c | 
-						c vertical exact: 100. 
-						c horizontal exact: 1000 ];
+						c vertical exact: 200. 
+						c horizontal matchParent ];
 					elementBuilder: [ each asCardElement margin: (BlInsets all: 20) ].
 				container addChild: imageContainer].
 			container asScrollableElement ]
