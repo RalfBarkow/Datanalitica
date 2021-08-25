@@ -17,6 +17,13 @@ asCardElement
 					fontSize: 20;
 					foreground: Color black));
 			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self name; beLargeSize);
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted);
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self description));
+			addChild: (BrLabel new 
+				aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted);
+			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self description);
+			addChild: (BrEditor new
+				constraintsDo: [ :c | 
+					c horizontal matchParent ];
+				aptitude: BrGlamorousRegularEditorAptitude new;
+				beReadOnlyWithSelection;
+				text: String loremIpsum));
 		when: BlClickEvent do: [:e | e target phlow spawnObject: self tweets]

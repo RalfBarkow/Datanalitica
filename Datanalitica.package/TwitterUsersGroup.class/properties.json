@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"users",
-		"title"
+		"title",
+		"discourseTopics"
 	],
 	"name" : "TwitterUsersGroup",
 	"type" : "normal"
