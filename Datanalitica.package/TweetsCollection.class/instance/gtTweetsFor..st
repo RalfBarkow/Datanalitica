@@ -14,12 +14,11 @@ gtTweetsFor: aView
 			self tweets do: [ :each |
 				imageContainer := BlLazyElement new
 					withGlamorousPreview;
-							aptitude: BrShadowAptitude new;
-		background: Color white;
-
-					margin: (BlInsets all: 20);
+					aptitude: BrShadowAptitude new;
+					background: Color white;
+					margin: (BlInsets all: 10);
 					constraintsDo: [ :c | 
-						c vertical exact: 200. 
+						c vertical exact: 135.
 						c horizontal matchParent ];
 					elementBuilder: [ each asTestCardElement margin: (BlInsets all: 20) ].
 				container addChild: imageContainer].

@@ -52,11 +52,11 @@ asTestCardElement
 							BrButton new
 								aptitude: BrGlamorousButtonWithLabelAptitude new;
 								label: 'Details';
-								action: [ anEditor beReadOnlyWithSelection ].	
+								action: [ :e | e phlow spawnObject: self  ].	
 							BrButton new
 								aptitude: BrGlamorousButtonWithLabelAptitude new;
 								label: 'Web view';
-								action: [ anEditor beReadOnlyWithoutSelection ].
+								action: [ self webView ].
 				}
 			}
 		}
