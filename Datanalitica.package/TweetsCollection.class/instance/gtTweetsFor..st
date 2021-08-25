@@ -21,6 +21,6 @@ gtTweetsFor: aView
 					constraintsDo: [ :c | 
 						c vertical exact: 200. 
 						c horizontal matchParent ];
-					elementBuilder: [ each asCardElement margin: (BlInsets all: 20) ].
+					elementBuilder: [ each asTestCardElement margin: (BlInsets all: 20) ].
 				container addChild: imageContainer].
 			container asScrollableElement ]

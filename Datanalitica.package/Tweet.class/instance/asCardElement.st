@@ -18,5 +18,22 @@ asCardElement
 				   addChild: (BrEditor new
 						    aptitude: BrGlamorousRegularEditorAptitude new;
 							beReadOnlyWithSelection;
-						    text: self text));
+						    text: self text);
+					addChild:(BrHorizontalPane new
+								fitContent;
+								cellSpacing: 5;
+								addChildren: { 
+									BrButton new
+										aptitude: BrGlamorousButtonWithLabelAptitude new;
+										label: 'Toggle subtopics';
+										action: [ "anEditor beEditable" ].
+									BrButton new
+										aptitude: BrGlamorousButtonWithLabelAptitude new;
+										label: 'Add subtopic keyword';
+										action: [ "anEditor beReadOnlyWithSelection" ].
+									BrButton new
+										aptitude: BrGlamorousButtonWithLabelAptitude new;
+										label: 'Web view';
+										action: [ "anEditor beReadOnlyWithoutSelection" ]
+				}));
 		  when: BlClickEvent do: [ :e | e target phlow spawnObject: self ]
