@@ -1,4 +1,4 @@
-accessing
+ui
 gtViewProfileDetailsOn: aView
 	<gtView>
 	^ aView explicit 
@@ -18,7 +18,7 @@ gtViewProfileDetailsOn: aView
 				background: Color white;
 				margin: (BlInsets all: 20);
 				constraintsDo: [ :c | 
-						c vertical exact: 150. 
+						c vertical exact: 175. 
 						c horizontal matchParent ];
 				elementBuilder: [ self asCardElement margin: (BlInsets all: 20) ].
 			container addChild: imageContainer].

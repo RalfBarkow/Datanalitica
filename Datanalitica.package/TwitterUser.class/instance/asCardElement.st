@@ -1,29 +1,60 @@
-ui
+accessing
 asCardElement
-	^ BrHorizontalPane new 
-		hFitContent;
+	| aModeLook anEditor textInfoPane |
+	
+	aModeLook := BrEditorModeAptitude new
+		editableFocused: [ :aWidget | aWidget border: (BlBorder paint: BrGlamorousColors focusedEditorBorderColor width: 1) ];
+		editableUnfocused: [ :aWidget | aWidget border: (BlBorder paint: BrGlamorousColors editorBorderColor width: 1) ];
+		readOnly: [ :aWidget | aWidget border: BlBorder empty ].
+
+	anEditor := BrEditor new
+		aptitude: BrGlamorousRegularEditorAptitude new + aModeLook;
+		text: self description;
+		vFitContent.
+		
+	textInfoPane := BrVerticalPane new
+				   	hMatchParent;
+				   	vFitContent;
+				   	margin: (BlInsets left: 20);
+				   	addChild: (BrLabel new
+						    aptitude: BrGlamorousLabelAptitude;
+						    text: '@' , self userName ;
+						    beHugeSize);
+						addChild: (BrLabel new
+						    aptitude: BrGlamorousLabelAptitude;
+						    text: self name;
+						    beLargeSize);    
+						addChild: (BrLabel new
+						    aptitude: BrGlamorousLabelAptitude;
+						    text: 'Joined: ' , self createdAtShorted );
+						addChild: anEditor.    
+
+	^ BrHorizontalPane new
+		padding: (BlInsets all: 15);
+		margin: (BlInsets all: 10);
+		cellSpacing: 5;
+		hMatchParent;
 		vFitContent;
-		padding: (BlInsets all: 20);
-		margin: (BlInsets all: 10);		
-		addChild: (self profileImage asElement asScalableElement size: 124@124);
-		addChild: (BrVerticalPane new
-			fitContent;
-			margin: (BlInsets left: 20);
-			addChild: (BlTextElement new
-				constraintsDo: [ :c | 
-					c horizontal fitContent ];
-				margin: (BlInsets top: 5 right: 0 bottom: 5 left: 5);
-				text: (('@', self userName) asRopedText glamorousRegularFont
-					fontSize: 20;
-					foreground: Color black));
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self name; beLargeSize);
-			addChild: (BrLabel new 
-				aptitude: BrGlamorousLabelAptitude; text: 'joined: ', self createdAtShorted);
-			addChild: (BrLabel new aptitude: BrGlamorousLabelAptitude; text: self description);
-			addChild: (BrEditor new
-				constraintsDo: [ :c | 
-					c horizontal matchParent ];
-				aptitude: BrGlamorousRegularEditorAptitude new;
-				beReadOnlyWithSelection;
-				text: String loremIpsum));
-		when: BlClickEvent do: [:e | e target phlow spawnObject: self tweets]
+		addChildren: { 
+			(self  profileImage asElement asScalableElement size: 124 @ 124).
+			BrVerticalPane new
+				cellSpacing: 5;
+				hMatchParent;
+				vFitContent;
+				addChildren: {
+					textInfoPane.
+					BrHorizontalPane new
+						fitContent;
+						cellSpacing: 5;
+						addChildren: { 
+							BrButton new
+								aptitude: BrGlamorousButtonWithLabelAptitude new;
+								label: 'Tweets';
+								action: [ :e | e phlow spawnObject: self tweets ].	
+							BrButton new
+								aptitude: BrGlamorousButtonWithLabelAptitude new;
+								label: 'Web view';
+								action: [ self webView ].
+				}
+			}
+		}

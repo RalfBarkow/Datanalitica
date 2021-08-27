@@ -18,8 +18,8 @@ gtTweetsFor: aView
 					background: Color white;
 					margin: (BlInsets all: 10);
 					constraintsDo: [ :c | 
-						c vertical exact: 135.
+						c vertical exact: 145.
 						c horizontal matchParent ];
-					elementBuilder: [ each asTestCardElement margin: (BlInsets all: 20) ].
+					elementBuilder: [ each asCardElement margin: (BlInsets all: 20) ].
 				container addChild: imageContainer].
 			container asScrollableElement ]
