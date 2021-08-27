@@ -1,6 +1,6 @@
 accessing
 asCardElement
-	| aModeLook anEditor textInfoPane |
+	| aModeLook anEditor textInfoPane buttonsPane |
 	
 	aModeLook := BrEditorModeAptitude new
 		editableFocused: [ :aWidget | aWidget border: (BlBorder paint: BrGlamorousColors focusedEditorBorderColor width: 1) ];
@@ -20,23 +20,8 @@ asCardElement
 						    aptitude: BrGlamorousLabelAptitude;
 						    text: '@' , self user userName , ' | ' , self created asString;
 						    beSmallSize);
-						addChild: anEditor.    
-
-	^ BrHorizontalPane new
-		padding: (BlInsets all: 15);
-		margin: (BlInsets all: 10);
-		cellSpacing: 5;
-		hMatchParent;
-		vFitContent;
-		addChildren: { 
-			(self user profileImage asElement asScalableElement size: 64 @ 64).
-			BrVerticalPane new
-				cellSpacing: 5;
-				hMatchParent;
-				vFitContent;
-				addChildren: {
-					textInfoPane.
-					BrHorizontalPane new
+						addChild: anEditor.
+	buttonsPane := BrHorizontalPane new
 						fitContent;
 						cellSpacing: 5;
 						addChildren: { 
@@ -56,6 +41,22 @@ asCardElement
 								aptitude: BrGlamorousButtonWithLabelAptitude new;
 								label: 'Web view';
 								action: [ self webView ].
+				}.
+
+	^ BrHorizontalPane new
+		padding: (BlInsets all: 15);
+		margin: (BlInsets all: 10);
+		cellSpacing: 5;
+		hMatchParent;
+		vFitContent;
+		addChildren: { 
+			(self user profileImage asElement asScalableElement size: 64 @ 64).
+			BrVerticalPane new
+				cellSpacing: 5;
+				hMatchParent;
+				vFitContent;
+				addChildren: {
+					buttonsPane.
+					textInfoPane.
 				}
-			}
 		}

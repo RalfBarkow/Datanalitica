@@ -1,6 +1,6 @@
 accessing
 asCardElement
-	| aModeLook anEditor textInfoPane |
+	| aModeLook anEditor textInfoPane buttonsPane |
 	
 	aModeLook := BrEditorModeAptitude new
 		editableFocused: [ :aWidget | aWidget border: (BlBorder paint: BrGlamorousColors focusedEditorBorderColor width: 1) ];
@@ -27,7 +27,20 @@ asCardElement
 						addChild: (BrLabel new
 						    aptitude: BrGlamorousLabelAptitude;
 						    text: 'Joined: ' , self createdAtShorted );
-						addChild: anEditor.    
+						addChild: anEditor.
+	buttonsPane := BrHorizontalPane new
+						fitContent;
+						cellSpacing: 5;
+						addChildren: { 
+							BrButton new
+								aptitude: BrGlamorousButtonWithLabelAptitude new;
+								label: 'Tweets';
+								action: [ :e | e phlow spawnObject: self tweets ].	
+							BrButton new
+								aptitude: BrGlamorousButtonWithLabelAptitude new;
+								label: 'Web view';
+								action: [ self webView ].
+						}.
 
 	^ BrHorizontalPane new
 		padding: (BlInsets all: 15);
@@ -42,19 +55,7 @@ asCardElement
 				hMatchParent;
 				vFitContent;
 				addChildren: {
+					buttonsPane.
 					textInfoPane.
-					BrHorizontalPane new
-						fitContent;
-						cellSpacing: 5;
-						addChildren: { 
-							BrButton new
-								aptitude: BrGlamorousButtonWithLabelAptitude new;
-								label: 'Tweets';
-								action: [ :e | e phlow spawnObject: self tweets ].	
-							BrButton new
-								aptitude: BrGlamorousButtonWithLabelAptitude new;
-								label: 'Web view';
-								action: [ self webView ].
 				}
-			}
 		}

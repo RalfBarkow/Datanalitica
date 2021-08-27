@@ -13,7 +13,8 @@
 		"description",
 		"metrics",
 		"tweets",
-		"createdAt"
+		"createdAt",
+		"groups"
 	],
 	"name" : "TwitterUser",
 	"type" : "normal"
