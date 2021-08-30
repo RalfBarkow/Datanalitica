@@ -4,4 +4,7 @@ userQueryFor: username selecting: tweetsOrMentions
 	"The following query gets the last 100 tweets or mentions that is the maximun allowed for a particular user without pagination:"
 	queryURL := self userEndPointFor: username selecting: tweetsOrMentions.
 	rawResponse := self rawResponseForURL:queryURL.  
-	^ TwitterAPIResponse new fromDictionary: (STONJSON fromString: rawResponse)
+	^ TwitterAPIResponse new 
+		fromDictionary: (STONJSON fromString: rawResponse);
+		queryURL: queryURL;
+		date: DateAndTime now.

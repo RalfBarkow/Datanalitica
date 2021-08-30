@@ -1,5 +1,8 @@
 accessing
 usersGroupMentioning: userName
+	| response |
+	response := self userQueryFor: userName selecting: 'mentions'.
 	^ TwitterUsersGroup new
-		users: (self usersMentioning: userName);
-		title: 'Users mentioning @', userName
+		users: response messagesAuthors;
+		title: 'Users mentioning @', userName;
+		origin: response queryURL

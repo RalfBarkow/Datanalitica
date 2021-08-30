@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "<historical>",
 	"super" : "Object",
 	"category" : "Datanalitica-Datanalitica",
 	"classinstvars" : [ ],
@@ -8,7 +8,8 @@
 	"instvars" : [
 		"users",
 		"title",
-		"discourseTopics"
+		"discourseTopics",
+		"origin"
 	],
 	"name" : "TwitterUsersGroup",
 	"type" : "normal"

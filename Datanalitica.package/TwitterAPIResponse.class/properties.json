@@ -8,7 +8,9 @@
 	"instvars" : [
 		"data",
 		"includes",
-		"meta"
+		"meta",
+		"queryURL",
+		"date"
 	],
 	"name" : "TwitterAPIResponse",
 	"type" : "normal"
