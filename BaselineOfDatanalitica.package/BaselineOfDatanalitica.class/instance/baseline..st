@@ -2,7 +2,7 @@ baselines
 baseline: spec
 	<baseline>
 	spec
-		for: #comomn
+		for: #common
 		do: [ 
 			spec
 				package: 'Datanalitica'

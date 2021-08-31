@@ -9,7 +9,9 @@
 		"users",
 		"title",
 		"discourseTopics",
-		"origin"
+		"origin",
+		"date",
+		"storage"
 	],
 	"name" : "TwitterUsersGroup",
 	"type" : "normal"

@@ -5,4 +5,6 @@ usersGroupMentioning: userName
 	^ TwitterUsersGroup new
 		users: response messagesAuthors;
 		title: 'Users mentioning @', userName;
-		origin: response queryURL
+		origin: response queryURL;
+		date: DateAndTime now;
+		storage: self storage.
