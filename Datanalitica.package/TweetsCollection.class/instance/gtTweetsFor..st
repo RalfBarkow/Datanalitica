@@ -8,7 +8,7 @@ gtTweetsFor: aView
 			container := BlElement new
 				layout: BlFlowLayout new;
 				constraintsDo: [ :c | 
-					c vertical matchParent.
+					c vertical fitContent.
 					c horizontal matchParent ];
 				padding: (BlInsets all: 10).
 			self tweets do: [ :each |
